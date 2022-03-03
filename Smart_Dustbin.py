@@ -24,6 +24,7 @@ GPIO.output(servoPin2, GPIO.LOW)
 def openbin():
     p = GPIO.PWM(servoPin, 50)
     x = GPIO.PWM(servoPin2, 50)
+    print('IN')
 
     p.start(0)
     p.ChangeDutyCycle(12)
