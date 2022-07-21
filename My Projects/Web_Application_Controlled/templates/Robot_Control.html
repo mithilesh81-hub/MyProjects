@@ -1,0 +1,183 @@
+<html>
+ <head>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   
+         <script>
+         $(document).ready(function(){
+  $("#controlkeys").focus();
+});
+
+</script>
+<style>
+div.a {
+  font-size: 15px;
+}
+
+div.b {
+  font-size: large;
+}
+
+div.c {
+  font-size: 200%;
+}
+
+div.D {
+  font-size: 250%;
+}
+#Car{
+   float: left;
+   width:300px
+   height:400px
+}
+input[type=submit] {
+width: 15em; height : 2em;
+}
+
+
+</style>
+
+
+ <script>
+      
+      $(document).ready(function(){
+  left = 37,up = 38, right = 39,down = 40, enter = 13, leftpivot =16, rightpivot =17
+
+$(document).keydown(function(e) {
+    
+    
+switch(e.which) {
+    
+    
+    case 37:
+    $( "#frontcheck" ).prop('checked', false);
+    $( "#leftcheck" ).value =4;
+    $( "#leftcheck" ).prop('checked', true);
+
+    $('form#frm').submit();
+    break;
+
+    case 38:
+    
+    $( "#frontcheck" ).value =1
+    $( "#frontcheck" ).prop('checked', true);
+    $('form#frm').submit();
+    break;
+
+    case 39:
+    $( "#frontcheck" ).prop('checked', false);
+    $( "#rightcheck" ).value =3
+    $( "#rightcheck" ).prop('checked', true);
+    $('form#frm').submit();
+    break;
+
+    case 40:
+    $( "#frontcheck" ).prop('checked', false);
+    $( "#backcheck" ).value =2
+    $( "#backcheck" ).prop('checked', true);
+    $('form#frm').submit();
+    break;
+    
+    
+    case 13:
+    $( "#frontcheck" ).prop('checked', false);
+    $( "#stopcheck" ).value =5
+    $( "#stopcheck" ).prop('checked', true);
+    $('form#frm').submit();
+    break;
+    
+    case 17:
+    $( "#frontcheck" ).prop('checked', false);
+    $( "#rightpivotid" ).value =6
+    $( "#rightpivotid" ).prop('checked', true);
+    $('form#frm').submit();
+    break;
+    
+    case 16:
+    
+    $( "#frontcheck" ).prop('checked', false);
+    $( "#leftpivotid" ).value =7
+    $( "#leftpivotid" ).prop('checked', true);
+    $('form#frm').submit();
+    break;
+
+    default: return;
+}
+e.preventDefault();
+});
+
+  
+});
+      
+     
+      if(navigator.userAgent.indexOf("Andr") == -1 )
+    {
+        
+    }
+ 
+      
+      </script>
+
+
+   </head>
+<body>
+<form id = "form" action='/Robot_Arm' method="post" >
+       
+       <h1> Arm Control Actions </h1><br>
+      
+       <input type="submit" id = "clockwise" name ="clockwise" value="Turn_Clockwise" />
+       
+       
+       <input type="submit" id = "mid" name ="mid" value="Turn_Mid"/>
+       
+      
+       <input type="submit" id = "anticlockwise" name ="anticlockwise" value="Turn_Anticlockwise"/>
+       
+      
+       <input type="submit" id = "joint_down" name ="joint_down" value="Joint_Down"/>
+      
+       <input type="submit" id = "joint_up" name ="joint_up" value="Joint_Up"/>
+       
+       <input type="submit" id = "up_neck" name ="up_neck" value="Neck_Up"/>
+      
+       <input type="submit" id = "down_neck" name ="down_neck" value="Neck_Down"/>
+      
+       <input type="submit" id = "open_teeth" name ="open_teeth" value="Open_Grip"/>
+       
+       <input type="submit" id = "close_teeth" name ="close_teeth" value="Close_Grip"/>
+      
+       <input type="submit" id = "destroy" name ="destroy" value="Stop_Arm"/>
+       
+       </form>
+      
+   <div id = Car>
+      <form id = "frm" action='/Car_Control' method="post" > 
+      
+      <h1>Select the chekboxes  or   Use the keyboard arrows to control the motors <br></h1>
+      
+      <div class="c"> Forward: <input type="checkbox" id = "frontcheck" name ="forward" value="1"/>  </div> <br><br>
+       
+      <div class="c"> Backward: <input type="checkbox" id = "backcheck" name ="backward" value="2"/> </div> <br><br>
+      
+      <div class="c">Right: <input type="checkbox" id = "rightcheck" name ="right" value="3"/> </div> <br><br>
+      
+      <div class="c">Left: <input type="checkbox" id = "leftcheck" name ="left" value="4"/> </div> <br><br>
+      
+      <div class="c">Stop Car: <input type="checkbox" id = "stopcheck" name ="Stop_Motors" value="5"/></div> <br><br>
+      
+      <div class="c">Right Pivot: <input type="checkbox" id = "rightpivotid" name ="rightpivot" value="6"/>  </div><br><br>
+      
+      <div class="c">Left  Pivot: <input type="checkbox" id = "leftpivotid" name ="leftpivot" value="7"/> </div> <br><br>
+      
+       <input type="hidden" id ="controlkeys"/>
+       <input type="submit" name ="Submit" style="width:200px; height:40px;" value = "SUBMIT" size = '240'/>
+      
+      </form>
+      </div>
+      
+      
+     
+      
+      
+</form>
+</body>
+</html>
